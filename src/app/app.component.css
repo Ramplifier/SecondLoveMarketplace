@@ -1,0 +1,33 @@
+html, body {
+  height: 100%;
+}
+
+.grid-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 65px 1fr;
+  gap: 0 0;
+  grid-template-areas:
+    "banner banner"
+    "menu inhoud";
+}
+
+.banner {
+  grid-area: banner;
+  z-index: 10;
+
+  -webkit-box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+  grid-area: menu;
+  height: inherit;
+
+}
+
+.inhoud {
+  grid-area: inhoud;
+}

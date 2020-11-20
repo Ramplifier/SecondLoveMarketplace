@@ -1,0 +1,28 @@
+
+.menu-container {
+
+  width: 100%;
+  height: inherit;
+  margin: 0;
+  text-align: left;
+
+  -webkit-box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.menu-footer, .menu-header {
+  height: inherit;
+  background-color: #feef94;
+}
+
+.menu-header {
+  height: 10px;
+  border-bottom: 3px solid rgba(242, 181, 134, 1);
+}
+
+.menu-footer {
+  border-top: 3px solid rgba(242, 181, 134, 1);
+
+}
