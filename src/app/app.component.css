@@ -25,9 +25,13 @@ html, body {
 .menu {
   grid-area: menu;
   height: inherit;
+  -webkit-box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.1);
 
 }
 
-.inhoud {
+.content {
   grid-area: inhoud;
+  padding: 25px;
 }

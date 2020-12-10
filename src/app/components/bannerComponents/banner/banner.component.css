@@ -23,21 +23,3 @@
   color: #103475;
 
 }
-
-.sing-in-button {
-  background-image: url("src/app/resources/loginIcon.png");
-  float: right;
-  width: 70px;
-  height: inherit;
-  text-align: center;
-  line-height: 70px;
-  font-size: 50px;
-
-}
-
-
-.sing-in-button:hover {
-
-
-  border-right: 10px solid #103475;
-}
