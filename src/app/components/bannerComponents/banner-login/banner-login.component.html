@@ -1,0 +1,17 @@
+<div class="banner-login-container">
+  <div class="banner-login-form" *ngIf="active">
+    <form>
+      <label for="username">Username: </label>
+      <input type="text" id="username">
+      <label for="password">Password: </label>
+      <input type="password" id="password">
+      <input type="submit" value="log-in">
+    </form>
+
+  </div>
+  <button class="banner-login-button" (click)="active=!active">
+
+  </button>
+
+
+</div>

@@ -1,0 +1,54 @@
+input {
+  display: block;
+}
+
+.content-container {
+  height: 475px;
+}
+
+.kolom3 {
+  float: left;
+  width: 33%;
+  height: 350px;
+  padding-left: 15px;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+
+.middenkollom {
+  border-left: 10px solid rgba(242, 181, 134, 1);
+  border-right: 10px solid rgba(242, 181, 134, 1);
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-radius: 10px;
+}
+
+input[type="submit"] {
+  float: right;
+  width: 175px;
+  background-color: #feef94;
+  border: 2px solid rgba(242, 181, 134, 1);
+
+}
+
+input[type="submit"]:hover {
+  float: right;
+  width: 175px;
+  background-color: rgba(242, 181, 134, 1);
+  border: 2px solid rgba(242, 181, 134, 1);
+  color: #103475;
+}
+
+input[type="submit"]:disabled {
+  float: right;
+  width: 175px;
+  background-color: rgba(242, 181, 134, 1);
+  border: 2px solid rgba(242, 181, 134, 1);
+  color: lightgray;
+  background-color: dimgray;
+}
+
+.foutbericht {
+  color: red;
+  margin-bottom: 10px;
+}

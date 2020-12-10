@@ -1,0 +1,84 @@
+<div class="content-container">
+  <div class="content-titel">Aanmelden nieuwe gebruiker</div>
+  <div class="content-content">
+    <form id="registratie-form"
+          (ngSubmit)="addGebruiker()"
+    >
+
+      <div class="kolom3" [formGroup]="addGebruikerForm">
+        <h3>Details</h3>
+        <label for="naam-veld">Naam </label>
+        <input id="naam-veld"
+               type="text"
+               formControlName="naam">
+        <div *ngIf="addGebruikerForm.get('naam').dirty && addGebruikerForm.get('naam').invalid">
+          <p class="foutbericht">naam is heeft moet minimaal 3 tekens lang zijn.</p>
+        </div>
+        <label for="email-veld">E-mail </label>
+        <input id="email-veld"
+               type="text"
+               formControlName="email">
+        <div *ngIf="addGebruikerForm.get('email').dirty && addGebruikerForm.get('email').invalid">
+          <p class="foutbericht">Dit is geen geldig emailadres.</p>
+        </div>
+        <label for="wachtwoord-veld">wachtwoord </label>
+        <input id="wachtwoord-veld"
+               type="password"
+               formControlName="wachtwoord">
+        <div *ngIf="addGebruikerForm.get('wachtwoord').dirty && addGebruikerForm.get('wachtwoord').invalid">
+          <p class="foutbericht">Dit is geen geldig wachtwoord.</p>
+        </div>
+        <label for="voorwaarden-veld">Ik ga akkoord met de voorwaarden </label>
+        <input id="voorwaarden-veld"
+               type="checkbox"
+               formControlName="akkoord">
+      </div>
+      <div class="kolom3 middenkollom" [formGroup]="addBezorgoptiesForm">
+        <h3>Bezorgopties</h3>
+        <label for="afhalen-veld">Afhalen </label>
+        <input id="afhalen-veld"
+               type="checkbox"
+               formControlName="afhalen">
+        <label for="ophalen-veld">Ophalen </label>
+        <input id="ophalen-veld"
+               type="checkbox"
+               formControlName="ophalen">
+        <label for="versturen-veld">Versturen </label>
+        <input id="versturen-veld"
+               type="checkbox"
+               formControlName="versturen">
+        <label for="rembours-veld">Rembours versturen </label>
+        <input id="rembours-veld"
+               type="checkbox"
+               formControlName="rembours">
+      </div>
+      <div class="kolom3" [formGroup]="addAdresForm">
+        <h3>Adres</h3>
+        <label for="plaats-veld">woonplaats </label>
+        <input id="plaats-veld"
+               type="text"
+               formControlName="woonplaats">
+        <label for="straat-veld">Straatnaam </label>
+        <input id="straat-veld"
+               type="text"
+               formControlName="straatnaam">
+        <label for="huisnr-veld">huisnummer </label>
+        <input id="huisnr-veld"
+               type="text"
+               formControlName="huisnummer">
+        <label for="toevoeging-veld">toevoeging </label>
+        <input id="toevoeging-veld"
+               type="text"
+               formControlName="toevoeging">
+        <label for="postcode-veld">postcode </label>
+        <input id="postcode-veld"
+               type="text"
+               formControlName="postcode">
+
+      </div>
+      <input type="submit" value="Aanmelden" [disabled]="addGebruikerForm.invalid">
+    </form>
+
+
+  </div>
+</div>
