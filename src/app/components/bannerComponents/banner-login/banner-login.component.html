@@ -1,6 +1,6 @@
 <div class="banner-login-container">
   <div class="banner-login-form" *ngIf="active">
-    <form>
+    <form (ngSubmit)="verifyGebruiker()">
       <label for="username">Username: </label>
       <input type="text" id="username">
       <label for="password">Password: </label>

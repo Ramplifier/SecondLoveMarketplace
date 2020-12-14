@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {GebruikerService} from "../../../services/gebruiker.service";
 
 @Component({
   selector: 'banner-login',
@@ -9,10 +10,13 @@ export class BannerLoginComponent implements OnInit {
   active = false;
 
 
-  constructor() {
+  constructor(private gebruikerService: GebruikerService) {
   }
 
   ngOnInit(): void {
   }
 
+  verifyGebruiker() {
+    this.gebruikerService.verifyGebruiker('a@g.nl', 'halloHallo')
+  }
 }

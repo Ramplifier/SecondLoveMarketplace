@@ -20,4 +20,21 @@ export class GebruikerService {
     this.http.post<Gebruiker>(this.url, gebruiker).subscribe();
   }
 
+  getGebruiker(id: Number) {
+    var g = this.http.get(`${this.url}/${id}`).subscribe();
+    console.log(g);
+  }
+
+  verifyGebruiker(email: string, wachtwoord: string) {
+    let gegevens = {
+      naam: 'gast',
+      email: email,
+      wachtwoord: wachtwoord
+    };
+
+
+    console.log(gegevens);
+    this.http.post<Gebruiker>(this.url, gegevens).subscribe();
+  }
+
 }

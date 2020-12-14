@@ -20,7 +20,8 @@
 }
 
 .banner-login-form {
-  width: 450px;
+  width: 875px;
+  height: 100%;
   float: right;
   padding: 5px;
   color: #103475;
@@ -28,6 +29,8 @@
   font-weight: bold;
   font-family: "Constantia", "sans-serif";
   background-color: rgba(242, 181, 134, 1);
+
+  margin: auto;
 }
 
 input {

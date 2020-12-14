@@ -2,8 +2,9 @@ input {
   display: block;
 }
 
-.content-container {
-  height: 475px;
+form {
+  width: 100%;
+
 }
 
 .kolom3 {
@@ -23,6 +24,16 @@ input {
   border-radius: 10px;
 }
 
+
+input[type="checkbox"] {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  border: 2px solid rgba(242, 181, 134, 1);
+  margin-top: 5px;
+}
+
 input[type="submit"] {
   float: right;
   width: 175px;
@@ -38,6 +49,7 @@ input[type="submit"]:hover {
   border: 2px solid rgba(242, 181, 134, 1);
   color: #103475;
 }
+
 
 input[type="submit"]:disabled {
   float: right;

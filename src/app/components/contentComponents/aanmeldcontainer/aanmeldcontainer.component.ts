@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {GebruikerService} from "../../../services/gebruiker.service";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'aanmeldcontainer',
@@ -13,7 +14,7 @@ export class AanmeldcontainerComponent implements OnInit {
   addAdresForm: FormGroup;
 
 
-  constructor(private fb: FormBuilder, private gebruikerService: GebruikerService) {
+  constructor(private fb: FormBuilder, private gebruikerService: GebruikerService, private _location: Location) {
   }
 
   ngOnInit(): void {
@@ -31,18 +32,19 @@ export class AanmeldcontainerComponent implements OnInit {
     })
 
     this.addAdresForm = this.fb.group({
-      woonplaats: new FormControl("", [Validators.required]),
-      straatnaam: new FormControl("", [Validators.required]),
-      huisnummer: new FormControl("", [Validators.required]),
-      toevoeging: new FormControl("", [Validators.required]),
-      postcode: new FormControl("", [Validators.required])
+      woonplaats: new FormControl('', [Validators.required]),
+      straatnaam: new FormControl('', [Validators.required]),
+      huisnummer: new FormControl('', [Validators.required]),
+      toevoeging: new FormControl(null),
+      postcode: new FormControl('', [Validators.required])
     })
   }
 
   addGebruiker(): void {
     console.log(this.addGebruikerForm)
-
     this.gebruikerService.addGebruiker(this.addGebruikerForm.value, this.addBezorgoptiesForm.value, this.addAdresForm.value);
+    alert("je hebt nu een account! Yeaj")
+    this._location.back();
   }
 
 
