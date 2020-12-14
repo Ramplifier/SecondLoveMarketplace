@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {GebruikerService} from "../../../services/gebruiker.service";
 import {Location} from '@angular/common';
 
@@ -8,6 +8,8 @@ import {Location} from '@angular/common';
   templateUrl: './aanmeldcontainer.component.html',
   styleUrls: ['./aanmeldcontainer.component.css']
 })
+
+
 export class AanmeldcontainerComponent implements OnInit {
   addGebruikerForm: FormGroup;
   addBezorgoptiesForm: FormGroup;
@@ -20,7 +22,7 @@ export class AanmeldcontainerComponent implements OnInit {
   ngOnInit(): void {
     this.addGebruikerForm = this.fb.group({
       naam: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
-      email: new FormControl('', [Validators.required, Validators.pattern('^.+@.+\.nl$')]),
+      email: new FormControl('', [Validators.required, emailValidator]),
       wachtwoord: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(100)]),
       akkoord: new FormControl(false, [Validators.requiredTrue])
     })
@@ -41,11 +43,21 @@ export class AanmeldcontainerComponent implements OnInit {
   }
 
   addGebruiker(): void {
-    console.log(this.addGebruikerForm)
     this.gebruikerService.addGebruiker(this.addGebruikerForm.value, this.addBezorgoptiesForm.value, this.addAdresForm.value);
-    alert("je hebt nu een account! Yeaj")
+    alert("je hebt nu een account! Nice")
     this._location.back();
   }
 
-
 }
+
+function emailValidator(control: AbstractControl) {
+  // required validator should handle empty values
+  if (!control.value) {
+    return null;
+  }
+
+  let regex = /^.+@.+\.[a-zA-Z]+$/;
+  return regex.test(control.value) ? null : {email: {valid: false}};
+}
+
+

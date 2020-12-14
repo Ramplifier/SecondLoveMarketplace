@@ -1,10 +1,15 @@
 <div class="banner-login-container">
   <div class="banner-login-form" *ngIf="active">
-    <form (ngSubmit)="verifyGebruiker()">
-      <label for="username">Username: </label>
-      <input type="text" id="username">
+    <form [formGroup]="loginForm"
+          (ngSubmit)="verifyGebruiker()">
+      <label for="username">Email: </label>
+      <input type="text"
+             id="username"
+             formControlName="email">
       <label for="password">Password: </label>
-      <input type="password" id="password">
+      <input type="password"
+             id="password"
+             formControlName="wachtwoord">
       <input type="submit" value="log-in">
     </form>
 

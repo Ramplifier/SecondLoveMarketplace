@@ -1,4 +1,4 @@
-export interface Bezorgwijze {
+export interface Bezorgopties {
   afhalen: boolean;
   ophalen: boolean;
   verzenden: boolean;

@@ -1,4 +1,4 @@
-import {Bezorgwijze} from "./bezorgwijze";
+import {Bezorgopties} from "./bezorgopties";
 import {Gebruiker} from "./gebruiker";
 
 export interface Product {
@@ -8,5 +8,5 @@ export interface Product {
   prijs: number;
   gebruiker: Gebruiker;
   datumPlaatsing: any;
-  bezorgwijze: Bezorgwijze;
+  bezorgopties: Bezorgopties;
 }
