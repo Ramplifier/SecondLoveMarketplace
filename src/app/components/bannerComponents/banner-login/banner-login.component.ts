@@ -9,20 +9,30 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 })
 export class BannerLoginComponent implements OnInit {
   active = false;
+  logged = false;
   loginForm: FormGroup;
 
 
-  constructor(private fb: FormBuilder, private gebruikerService: GebruikerService) {
+  constructor(private fb: FormBuilder, public gebruikerService: GebruikerService) {
   }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: new FormControl('em'),
-      wachtwoord: new FormControl('ww')
+      email: new FormControl(),
+      wachtwoord: new FormControl()
     })
+
   }
 
   verifyGebruiker() {
     this.gebruikerService.verifyGebruiker(this.loginForm.get('email').value, this.loginForm.get('wachtwoord').value)
   }
+
+
+  loguitGebruiker() {
+    this.gebruikerService.loguitGebruiker();
+    location.reload();
+
+  }
+
 }

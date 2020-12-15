@@ -1,0 +1,24 @@
+<div class="content-container" *ngFor="let product of productsArray">
+  <div class="content-titel">{{product.naam}}<p class="categorie-tag">{{product.categorie}}</p></div>
+  <div class="content-content  product-container">
+
+    <div class="details-tag">
+      <p>prijs: &euro;{{product.prijs}}</p>
+      <p>geplaatst op: {{product.datumPlaatsing}}</p>
+      <p>eigenaar: {{product.gebruiker.naam}}</p>
+      <p>bezorgopties:</p>
+      <p class="bezorgoptie-tag" *ngIf="product.bezorgopties.ophalen">- Ophalen</p>
+      <p class="bezorgoptie-tag" *ngIf="product.bezorgopties.afhalen">- Afhalen</p>
+      <p class="bezorgoptie-tag" *ngIf="product.bezorgopties.versturen">- Verzenden</p>
+      <p class="bezorgoptie-tag" *ngIf="product.bezorgopties.rembours">- Rembours</p>
+    </div>
+
+    <div class="beschrijving-tag">
+      <p>{{product.beschrijving}}</p>
+    </div>
+
+
+  </div>
+</div>
+
+

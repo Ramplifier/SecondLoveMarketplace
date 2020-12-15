@@ -1,10 +1,16 @@
-<div class="banner-login-container">
+<div class="banner-login-container-logged" *ngIf="this.gebruikerService.gebruikerLogged()">
+  <p>{{this.gebruikerService.getGebruikerNaam()}}</p>
+  <input type="submit" value="uitloggen" (click)="loguitGebruiker()"/>
+</div>
+<div class="banner-login-container" *ngIf="this.gebruikerService.gebruikerLogged() === false">
+
   <div class="banner-login-form" *ngIf="active">
+
     <form [formGroup]="loginForm"
           (ngSubmit)="verifyGebruiker()">
-      <label for="username">Email: </label>
+      <label for="email">Email: </label>
       <input type="text"
-             id="username"
+             id="email"
              formControlName="email">
       <label for="password">Password: </label>
       <input type="password"
@@ -13,10 +19,8 @@
       <input type="submit" value="log-in">
     </form>
 
+
   </div>
-  <button class="banner-login-button" (click)="active=!active">
 
-  </button>
-
-
+  <button class="banner-login-button" (click)="active=!active">Inloggen</button>
 </div>

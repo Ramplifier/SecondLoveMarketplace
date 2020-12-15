@@ -1,0 +1,45 @@
+<div class="content-container">
+  <div class="content-titel">Product aanbieden</div>
+  <div class="content-content">
+    <form [formGroup]="addProductForm"
+          (ngSubmit)="addProduct()">
+      <label>Naam:</label>
+      <input type="text"
+             formControlName="naam">
+      <label>Beschrijving:</label>
+      <textarea formControlName="beschrijving"></textarea>
+      <label>Categorie:</label>
+      <input type="text"
+             formControlName="categorie">
+      <label>Prijs:</label>
+      <input type="text"
+             formControlName="prijs">
+      <label>Bezorgwijze:</label>
+      <div [formGroup]="addBezorgoptiesForm">
+        <div *ngIf="this.gebruikerService.getGebruikerBezorgOpties().afhalen">
+          <label>Afhalen</label>
+          <input type="checkbox"
+                 formControlName="afhalen">
+        </div>
+        <div *ngIf="this.gebruikerService.getGebruikerBezorgOpties().ophalen">
+          <label>Ophalen</label>
+          <input type="checkbox"
+                 formControlName="ophalen">
+        </div>
+        <div *ngIf="this.gebruikerService.getGebruikerBezorgOpties().rembours">
+          <label>Rembours</label>
+          <input type="checkbox"
+                 formControlName="rembours">
+        </div>
+        <div *ngIf="this.gebruikerService.getGebruikerBezorgOpties().versturen">
+          <label>Versturen</label>
+          <input type="checkbox"
+                 formControlName="versturen">
+        </div>
+
+
+      </div>
+      <input class="submit-button" type="submit" value="bied product aan">
+    </form>
+  </div>
+</div>

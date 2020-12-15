@@ -6,5 +6,5 @@ export interface Gebruiker {
   email: string;
   wachtwoord: string;
   adres: Adres;
-  bezorgwijze: Bezorgopties;
+  bezorgopties: Bezorgopties;
 }

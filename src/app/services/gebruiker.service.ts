@@ -9,13 +9,13 @@ import {Adres} from "../models/adres";
 })
 export class GebruikerService {
   private url = 'http://localhost:9080/MarktPleinApp_war/api/gebruikers';
-  private loggedGebruiker = {} as Gebruiker;
+  loggedGebruiker = {} as Gebruiker;
 
   constructor(private http: HttpClient) {
   }
 
-  addGebruiker(gebruiker: Gebruiker, bezorgwijze: Bezorgopties, adres: Adres): void {
-    gebruiker.bezorgwijze = bezorgwijze;
+  addGebruiker(gebruiker: Gebruiker, bezorgopties: Bezorgopties, adres: Adres): void {
+    gebruiker.bezorgopties = bezorgopties;
     gebruiker.adres = adres;
     console.log(gebruiker);
     this.http.post<Gebruiker>(this.url, gebruiker).subscribe();
@@ -27,14 +27,41 @@ export class GebruikerService {
       wachtwoord: wachtwoord
     };
     console.log(gegevens);
-
-    this.http.post(`${this.url}/login`, gegevens).subscribe({
+    this.http.post<Gebruiker>(`${this.url}/login`, gegevens).subscribe({
       next: data => {
-        console.log(data);
-      }
 
+        localStorage.setItem('gebruiker', JSON.stringify(data))
+        location.reload();
+      }
     });
+  }
+
+  loguitGebruiker() {
+    localStorage.clear();
+  }
+
+  gebruikerLogged() {
+    return localStorage.length > 0;
+  }
+
+  getLoggedGebruiker() {
+    if (localStorage.length > 0) {
+      return JSON.parse(localStorage.getItem("gebruiker"));
+    }
+
+    return null;
 
   }
+
+  getGebruikerNaam() {
+    const g: Gebruiker = JSON.parse(localStorage.getItem("gebruiker"));
+    return g.naam;
+  }
+
+  getGebruikerBezorgOpties() {
+    const g: Gebruiker = JSON.parse(localStorage.getItem("gebruiker"));
+    return g.bezorgopties;
+  }
+
 
 }

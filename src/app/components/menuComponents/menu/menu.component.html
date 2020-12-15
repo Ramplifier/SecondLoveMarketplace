@@ -1,6 +1,10 @@
 <div>
-  <div class="menu-header">
-    <input type="button" class="menu-button" value="Aanmelden" routerLink="gebruiker_aanmaken">
+  <div class="menu-header" *ngIf="this.gebruikerService.gebruikerLogged()">
     <input type="button" class="menu-button" value="Product aanbieden" routerLink="product_aanmaken">
+
+  </div>
+  <div class="menu-header" *ngIf="!this.gebruikerService.gebruikerLogged()">
+    <input type="button" class="menu-button" value="Aanmelden" routerLink="gebruiker_aanmaken">
+
   </div>
 </div>
